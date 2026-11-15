@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>3D Portfolio Animation — Nilesh Mhatre</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="app">
+  <header class="topbar">
+    <div><span class="eyebrow">INTERACTIVE CSS PROJECT</span><h1>3D Portfolio Animation</h1></div>
+    <div class="top-actions"><button id="prevBtn" type="button" aria-label="Previous page">←</button><span id="pageCount">Cover · 1 / 4</span><button id="nextBtn" type="button" aria-label="Next page">→</button></div>
+  </header>
+
+  <section class="book-stage" aria-label="Interactive 3D portfolio book">
+    <div class="book" id="book">
+      <div class="book-shadow"></div>
+      <div class="left-page" id="leftPage">
+        <div class="empty-page"> </div>
+      </div>
+      <div class="right-page" id="rightPage">
+        <article class="cover page-content" id="cover">
+          <div class="cover-glow"></div>
+          <p class="cover-kicker">PORTFOLIO</p>
+          <h2>Nilesh Mhatre</h2>
+          <p>Creative Developer &amp; Designer</p>
+          <span class="open-hint">Click to open book <b>↗</b></span>
+        </article>
+      </div>
+      <div class="flip-sheet" id="flipSheet" aria-hidden="true">
+        <div class="flip-front page-content" id="flipFront"></div>
+        <div class="flip-back page-content" id="flipBack"></div>
+      </div>
+      <div class="spine"></div>
+    </div>
+  </section>
+
+  <nav class="bottom-nav" aria-label="Book navigation">
+    <button id="prevBottom" type="button">Previous</button>
+    <span>Turn the pages to explore</span>
+    <button id="nextBottom" type="button">Next page</button>
+  </nav>
+
+  <section class="source-panel">
+    <div class="source-heading"><span>style.css</span><button id="copyCss" type="button">Copy visible CSS</button></div>
+    <pre><code id="cssSnippet">.front::before, .back::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--spine-shadow);
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+.back {
+  transform: rotateY(180deg);
+  border-radius: 12px 0 0 12px;
+  background-image: linear-gradient(-90deg,
+    rgba(0,0,0,0.05) 0%,
+    rgba(0,0,0,0) 10%);
+}</code></pre>
+  </section>
+  <p class="footnote">Use the arrow controls, click the book, or press ← / → on your keyboard.</p>
+</main>
+<div class="toast" id="toast" role="status"></div>
+<script src="script.js"></script>
+</body>
+</html>
